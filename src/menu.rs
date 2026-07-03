@@ -302,19 +302,17 @@ pub mod menu_navigation {
     }
 
     fn click_entity_with_fake_mouse(c: &mut Commands, entity: Entity) {
-        c.trigger(Pointer::<Click> {
-            entity,
-            // We're pretending that we're a mouse
-            pointer_id: PointerId::Mouse,
-            // This field isn't used, so we're just setting it to a placeholder value
-            pointer_location: Location {
+        // We're pretending that we're a mouse
+        c.trigger(Pointer::<Click>::new(
+            PointerId::Mouse,
+            Location {
                 target: NormalizedRenderTarget::None {
                     width: 0,
                     height: 0,
                 },
                 position: Vec2::ZERO,
             },
-            event: Click {
+            Click {
                 button: PointerButton::Primary,
                 // This field isn't used, so we're just setting it to a placeholder value
                 hit: HitData {
@@ -322,10 +320,13 @@ pub mod menu_navigation {
                     depth: 0.0,
                     position: None,
                     normal: None,
+                    extra: None,
                 },
                 duration: Duration::from_secs_f32(0.1),
+                count: 1,
             },
-        });
+            entity,
+        ));
     }
 }
 

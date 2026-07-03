@@ -443,8 +443,8 @@ pub fn spawn_battle_resolution_ui(
     };
 
     let button_font = TextFont {
-        font_size: 33.,
-        font: fonts.badge.clone(),
+        font_size: FontSize::Px(33.),
+        font: FontSource::Handle(fonts.badge.clone()),
         ..Default::default()
     };
 
@@ -471,8 +471,8 @@ pub fn spawn_battle_resolution_ui(
                 (
                     TextColor(color),
                     TextFont {
-                        font: fonts.pixelify_sans_medium.clone(),
-                        font_size: 65.,
+                        font: FontSource::Handle(fonts.pixelify_sans_medium.clone()),
+                        font_size: FontSize::Px(65.),
                         ..Default::default()
                     },
                     Text(condition_text.to_string()),
@@ -480,8 +480,8 @@ pub fn spawn_battle_resolution_ui(
                 (
                     TextColor(UI_TEXT_COLOR),
                     TextFont {
-                        font: fonts.pixelify_sans_regular.clone(),
-                        font_size: 32.,
+                        font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
+                        font_size: FontSize::Px(32.),
                         ..Default::default()
                     },
                     Text("Thanks for playing! :)".to_string()),

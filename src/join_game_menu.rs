@@ -146,7 +146,7 @@ fn build_ui(commands: &mut Commands, fonts: &FontResource) {
             children![(
                 Text("Press \"J\" or LB and RB together to join the game".to_string()),
                 TextFont {
-                    font: fonts.pixelify_sans_regular.clone(),
+                    font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                     ..Default::default()
                 }
             )],
@@ -189,7 +189,7 @@ fn add_player_ui(
     player: Player,
 ) -> Entity {
     let font_settings = TextFont {
-        font: fonts.pixelify_sans_regular.clone(),
+        font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
         ..Default::default()
     };
     let player_block_container = commands
@@ -216,7 +216,7 @@ fn add_player_ui(
             },
             TextInput,
             TextInputTextFont(TextFont {
-                font_size: 34.,
+                font_size: FontSize::Px(34.),
                 ..font_settings.clone()
             }),
             TextInputPlaceholder {
@@ -1000,7 +1000,7 @@ fn build_unit_preview_screen(
             children![(
                 Text(unit_save.save_file_key.name.clone()),
                 TextFont {
-                    font: fonts.pixelify_sans_regular.clone(),
+                    font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                     ..Default::default()
                 }
             )],
@@ -1045,7 +1045,7 @@ fn build_unit_preview_screen(
             children![(
                 Text::new("Ready!"),
                 TextFont {
-                    font: fonts.pixelify_sans_regular.clone(),
+                    font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                     ..Default::default()
                 }
             )],
@@ -1159,7 +1159,7 @@ fn build_load_file_screen(
                 children![(
                     Text(save_file_key.name.clone()),
                     TextFont {
-                        font: fonts.pixelify_sans_regular.clone(),
+                        font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                         ..Default::default()
                     }
                 )],

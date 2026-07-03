@@ -379,8 +379,8 @@ pub mod phase_ui {
                     TextColor(color),
                     Text::new(text),
                     TextFont {
-                        font_size: 60.,
-                        font: fonts.badge.clone(),
+                        font_size: FontSize::Px(60.),
+                        font: FontSource::Handle(fonts.badge.clone()),
                         ..Default::default()
                     },
                 )],

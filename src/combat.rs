@@ -712,8 +712,8 @@ pub fn spawn_damage_text(
                 Text2d(format!("+ {} HP", message.health_changed.abs())),
                 TextColor(Color::linear_rgb(0.0, 1.0, 0.0)),
                 TextFont {
-                    font: fonts.pixelify_sans_regular.clone(),
-                    font_size: 12.,
+                    font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
+                    font_size: FontSize::Px(12.),
                     font_smoothing: bevy::text::FontSmoothing::None,
                     ..Default::default()
                 },
@@ -729,8 +729,8 @@ pub fn spawn_damage_text(
                 Text2d(format!("- {} HP", message.health_changed.abs())),
                 TextColor(Color::linear_rgb(1.0, 0.0, 0.0)),
                 TextFont {
-                    font: fonts.pixelify_sans_regular.clone(),
-                    font_size: 12.,
+                    font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
+                    font_size: FontSize::Px(12.),
                     font_smoothing: bevy::text::FontSmoothing::None,
                     ..Default::default()
                 },
