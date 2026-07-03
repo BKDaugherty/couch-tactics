@@ -194,7 +194,7 @@ pub mod battle_menu_ui_definition {
                     TextColor(UI_TEXT_COLOR),
                     ObjectiveText {},
                     TextFont {
-                        font: fonts.pixelify_sans_regular.clone(),
+                        font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                         ..Default::default()
                     }
                 )],
@@ -249,8 +249,8 @@ pub mod battle_menu_ui_definition {
                 .id();
 
             let font_style = TextFont {
-                font: fonts.pixelify_sans_regular.clone(),
-                font_size: 24.,
+                font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
+                font_size: FontSize::Px(24.),
                 font_smoothing: bevy::text::FontSmoothing::None,
                 ..Default::default()
             };
@@ -566,8 +566,8 @@ pub fn battle_ui_button(fonts: &FontResource, action: BattleMenuAction, text: &s
         children![(
             Text::new(text),
             TextFont {
-                font_size: 20.0,
-                font: fonts.pixelify_sans_regular.clone(),
+                font_size: FontSize::Px(20.0),
+                font: FontSource::Handle(fonts.pixelify_sans_regular.clone()),
                 font_smoothing: bevy::text::FontSmoothing::None,
                 ..Default::default()
             },

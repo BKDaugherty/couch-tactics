@@ -1257,7 +1257,7 @@ pub mod overlay {
                 && *id == asset_handles.tile_overlay_image_handle.id()
             {
                 info!("Our specific image asset and its dependencies are loaded!");
-                if let Some(image) = images.get_mut(*id) {
+                if let Some(mut image) = images.get_mut(*id) {
                     image.sampler = ImageSampler::nearest();
                 }
             }

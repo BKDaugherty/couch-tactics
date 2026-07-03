@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use bevy::{input_focus::InputDispatchPlugin, prelude::*};
+use bevy::prelude::*;
 
 use crate::{
     GameState,
@@ -22,8 +22,7 @@ use crate::{
 };
 
 pub fn main_menu_plugin(app: &mut App) {
-    app.add_plugins(InputDispatchPlugin)
-        .add_systems(OnEnter(GameState::MainMenu), main_menu_setup)
+    app.add_systems(OnEnter(GameState::MainMenu), main_menu_setup)
         .add_systems(
             Update,
             (
@@ -127,8 +126,8 @@ fn build_settings_menu(
     };
 
     let button_text_font = TextFont {
-        font_size: 25.0,
-        font: font_resource.pixelify_sans_regular.clone(),
+        font_size: FontSize::Px(25.0),
+        font: FontSource::Handle(font_resource.pixelify_sans_regular.clone()),
         ..default()
     };
 
@@ -218,8 +217,8 @@ fn build_settings_menu(
             children![(
                 Text::new("Settings"),
                 TextFont {
-                    font_size: 40.0,
-                    font: font_resource.pixelify_sans_medium.clone(),
+                    font_size: FontSize::Px(40.0),
+                    font: FontSource::Handle(font_resource.pixelify_sans_medium.clone()),
                     ..default()
                 },
                 TextColor(UI_TEXT_COLOR),
@@ -270,8 +269,8 @@ fn main_menu_setup(mut commands: Commands, font_resource: Res<FontResource>) {
     };
 
     let button_text_font = TextFont {
-        font_size: 33.0,
-        font: font_resource.pixelify_sans_regular.clone(),
+        font_size: FontSize::Px(33.0),
+        font: FontSource::Handle(font_resource.pixelify_sans_regular.clone()),
         ..default()
     };
 
@@ -331,8 +330,8 @@ fn main_menu_setup(mut commands: Commands, font_resource: Res<FontResource>) {
         children![(
             Text::new("Couch Tactics"),
             TextFont {
-                font_size: 67.0,
-                font: font_resource.pixelify_sans_medium.clone(),
+                font_size: FontSize::Px(67.0),
+                font: FontSource::Handle(font_resource.pixelify_sans_medium.clone()),
                 ..default()
             },
             TextColor(UI_TEXT_COLOR),
